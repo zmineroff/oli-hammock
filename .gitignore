@@ -1,6 +1,6 @@
 *~
 node_modules
-lib
+# lib
 typedoc
 .#package.json
 src/test.js
