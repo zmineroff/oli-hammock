@@ -21,7 +21,16 @@ export function readAssets(webContentFolder: string, activityData: Element): Pro
             } else if (promises.has(name)) {
                 console.error(`Multiple assets named ${name}`);
                 console.error(`Asset being discarded: ${value}`);
-            } else {
+            }
+            // ZM - handle images; if asset starts with img- then rest of name is img element ID
+            else if (name.startsWith("img-")) {
+                promises.set(name, new Promise(resolve => {
+                    var imgUrl = webContentFolder + value;
+                    assets.set(name, imgUrl);
+                    resolve();
+                }));
+            }
+            else {
                 // Right now we're treating ALL assets as files to be loaded into memory. That's probably not
                 // actually the right move permanently, but doing better will require more thought.
                 promises.set(

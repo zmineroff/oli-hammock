@@ -20,6 +20,17 @@ function initializeHTML(assets: Map<string, Element>, framesizer: FrameSizer): v
     // Attach layout assets to page
     const layout = assets.get("layout");
     if (layout) $("#oli-embed").append(layout);
+
+    // ZM - handle images; if asset starts with img- then rest of name is img element ID
+    for (const key of assets.keys()) {
+        if (key.startsWith("img-")) {
+            var imgSrc = assets.get(key);
+            if (imgSrc) {
+                var imgId = "#" + key.substring(4);
+                $(imgId).attr("src", imgSrc + '');
+            }
+        };
+    }
 }
 
 /**
