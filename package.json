@@ -22,13 +22,13 @@
         "pretypedoc": "npm run tsc",
         "typedoc": "typedoc --out typedoc --mode file ./src/index.ts",
         "presurge": "npm run typedoc",
-        "surge": "surge -p ./typedoc -d oli-hammock.surge.sh",
+        "surge": "surge -p ./typedoc -d zm-oli-hammock.surge.sh",
         "prettier": "prettier --write src/**/*.ts *.json",
         "prepublishOnly": "npm run tsc"
     },
     "repository": {
         "type": "git",
-        "url": "git@github.com:calculemuscode/oli-hammock.git"
+        "url": "git@github.com:zmineroff/oli-hammock.git"
     },
     "license": "CC-BY-SA-4.0",
     "bugs": {
